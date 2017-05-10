@@ -1,0 +1,20 @@
+#ifndef SCREEN_H_
+#define SCREEN_H_
+
+#define VIDEO_ADDR 0xb8000
+#define MAX_ROWS 25
+#define MAX_COLS 80
+#define WHITE_ON_BLACK 0x0f
+#define RED_ON_WHITE 0xf4
+
+/* I/O Ports */
+#define REG_SCREEN_CTRL 0x3d4
+#define REG_SCREEN_DATA 0x3d5
+
+/* This is the public API that is being
+ * defined by kernel for external use */
+void clear_screen();
+void printk_at(char *message, int col, int row);
+void printk(char *message);
+
+#endif
